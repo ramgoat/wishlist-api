@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  app:
+    container_name: wishlist-api
+    build: .
+    ports:
+    - "8085:8085"
+    volumes:
+    - .:/app:rw
+    # - type: bind
+    #   source: ./app
+    #   target: /app
+    #   bind:
+    #     propagation: shared
