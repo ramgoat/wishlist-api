@@ -8,8 +8,23 @@ services:
     - "8085:8085"
     volumes:
     - .:/app:rw
-    # - type: bind
-    #   source: ./app
-    #   target: /app
-    #   bind:
-    #     propagation: shared
+    environment:
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOSTNAME: ${DB_HOSTNAME}
+      DB_PORT: ${DB_PORT}
+      DB_SCHEMA_NAME: ${DB_SCHEMA_NAME}
+  database:
+    container_name: wishlist-database
+    image: mysql:8.0
+    ports:
+    - "32116:3306"
+    expose:
+    - "3306"
+    environment:
+      MYSQL_DATABASE: ${DB_SCHEMA_NAME}
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+    - ./database:/var/lib/mysql:rw

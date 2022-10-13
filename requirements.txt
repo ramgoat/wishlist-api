@@ -1,3 +1,6 @@
 fastapi==0.85.0
 pydantic==1.10.2
 uvicorn==0.18.3
+fastapi-sqlalchemy==0.2.1
+fastapi-versioning==0.10.0
+starlette_exporter==0.14.0

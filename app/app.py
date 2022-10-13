@@ -1,9 +1,9 @@
 import uvicorn
 from fastapi import FastAPI
 
-app = FastAPI()
+app = FastAPI(title="Ramgoat Wishlist API", description="Welcome to the Wishlist API!", version="0.2.0")
 
-@app.get('/')
+@app.get("/")
 async def root():
     return {"message": "Hello, World!"}
 
